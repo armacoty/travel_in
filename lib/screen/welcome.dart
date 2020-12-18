@@ -11,10 +11,14 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("APP TITLE"),
-      ),
       body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/1.png"),
+            fit: BoxFit.cover,
+            scale: 500,
+          ),
+        ),
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
         child: Center(
@@ -22,16 +26,21 @@ class _WelcomePageState extends State<WelcomePage> {
             child: Container(
               alignment: Alignment.center,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text('Название приложения'),
-
-                  /// todo: изменить на логотип
-                  Icon(Icons.ac_unit, size: 100),
+                  Container(
+                    padding: EdgeInsets.all(20.0),
+                    child: Image(
+                        image: AssetImage('assets/logo.png'), height: 160),
+                  ),
+                  Text('TRAVEL IN',
+                      style: TextStyle(color: Colors.black, fontSize: 30)),
+                  SizedBox(height: 30),
                   RaisedButton(
                       padding:
                           EdgeInsets.symmetric(vertical: 25, horizontal: 100),
-                      color: Colors.white,
-                      textColor: Colors.black,
+                      color: Color(0xFFF57600),
+                      textColor: Colors.white,
                       shape: RoundedRectangleBorder(
                           borderRadius: new BorderRadius.circular(30.0)),
                       onPressed: () {
@@ -43,20 +52,20 @@ class _WelcomePageState extends State<WelcomePage> {
                       child: Text("Вход")),
                   SizedBox(height: 10),
                   RaisedButton(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 25, horizontal: 75),
-                      color: Colors.white,
-                      textColor: Colors.black,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => RegistrationPage()),
-                        );
-                      },
-                      child: Text("Регистрация")),
+                    padding: EdgeInsets.symmetric(vertical: 25, horizontal: 75),
+                    color: Color(0xFFF57600),
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: new BorderRadius.circular(30.0)),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => RegistrationPage()),
+                      );
+                    },
+                    child: Text("Регистрация"),
+                  ),
                 ],
               ),
             ),
