@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.message, size: 35), label: "Три"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.message, size: 35), label: "Четыре"),
+              icon: Icon(Icons.looks_6_outlined, size: 35), label: "Четыре"),
         ],
         currentIndex: _seletedItem,
         onTap: (index) {

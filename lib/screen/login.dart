@@ -53,6 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                                 hintStyle: TextStyle(color: Colors.grey[400])),
                           ),
                         ),
+                        Divider(),
 
                         /// Ввод пароля
                         Container(
