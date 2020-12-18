@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_in/screen/home.dart';
+import 'package:travel_in/screen/prear.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -15,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var _pages = [
     /// todo: добавить потом другие страницы
     HomePage(),
-    HomePage(),
+    PreARPage(),
     HomePage(),
     HomePage(),
   ];
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.person, size: 35), label: "Один"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person, size: 35), label: "Два"),
+              icon: Icon(Icons.person, size: 35), label: "Гид"),
           BottomNavigationBarItem(
               icon: Icon(Icons.message, size: 35), label: "Три"),
           BottomNavigationBarItem(
