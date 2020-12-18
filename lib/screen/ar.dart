@@ -43,7 +43,6 @@ class _ARPageState extends State<ARPage> {
       rotation: plane.pose.rotation,
     );
     arCoreController.addArCoreNodeWithAnchor(foxNode);
-    //foxSay("Hi, how are you?");
   }
 
   @override
