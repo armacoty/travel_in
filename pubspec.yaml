@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.1
   arcore_flutter_plugin: ^0.0.10
   permission_handler: ^5.0.1+1
+  flutter_tts: ^2.0.0
 
 dev_dependencies:
   flutter_test:
