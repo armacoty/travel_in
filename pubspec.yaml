@@ -32,6 +32,10 @@ dependencies:
   permission_handler: ^5.0.1+1
   flutter_tts: ^2.0.0
 
+  google_nav_bar: ^3.1.0
+  google_maps_flutter: ^1.0.6
+  geolocator: ^6.1.8
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_in/screen/home.dart';
+import 'package:travel_in/screen/map.dart';
 import 'package:travel_in/screen/prear.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -16,7 +17,9 @@ class _MyHomePageState extends State<MyHomePage> {
   var _pages = [
     /// todo: добавить потом другие страницы
     HomePage(),
+
     PreARPage(),
+    PointMap(),
     HomePage(),
     HomePage(),
   ];
