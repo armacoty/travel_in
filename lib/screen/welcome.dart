@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travel_in/screen/login.dart';
+import 'package:travel_in/screen/registration.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -22,10 +23,13 @@ class _WelcomePageState extends State<WelcomePage> {
               alignment: Alignment.center,
               child: Column(
                 children: [
-                  Text('Тут welcome'),
+                  Text('Название приложения'),
+
+                  /// todo: изменить на логотип
+                  Icon(Icons.ac_unit, size: 100),
                   RaisedButton(
                       padding:
-                          EdgeInsets.symmetric(vertical: 30, horizontal: 110),
+                          EdgeInsets.symmetric(vertical: 25, horizontal: 100),
                       color: Colors.white,
                       textColor: Colors.black,
                       shape: RoundedRectangleBorder(
@@ -36,7 +40,23 @@ class _WelcomePageState extends State<WelcomePage> {
                           MaterialPageRoute(builder: (context) => LoginPage()),
                         );
                       },
-                      child: Text("Далее логин")),
+                      child: Text("Вход")),
+                  SizedBox(height: 10),
+                  RaisedButton(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 25, horizontal: 75),
+                      color: Colors.white,
+                      textColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => RegistrationPage()),
+                        );
+                      },
+                      child: Text("Регистрация")),
                 ],
               ),
             ),
