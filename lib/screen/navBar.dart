@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_in/screen/welcome.dart';
+import 'package:travel_in/screen/home.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,10 +26,10 @@ class _MyHomePageState extends State<MyHomePage> {
   /// Страницы,
   var _pages = [
     /// todo: добавить потом другие страницы
-    WelcomePage(),
-    WelcomePage(),
-    WelcomePage(),
-    WelcomePage(),
+    HomePage(),
+    HomePage(),
+    HomePage(),
+    HomePage(),
   ];
 
   @override

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:travel_in/screen/navBar.dart';
+import 'package:travel_in/screen/login.dart';
 
 class WelcomePage extends StatefulWidget {
   @override
@@ -20,19 +20,25 @@ class _WelcomePageState extends State<WelcomePage> {
           child: SingleChildScrollView(
             child: Container(
               alignment: Alignment.center,
-              child: RaisedButton(
-                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 110),
-                  color: Colors.white,
-                  textColor: Colors.black,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(30.0)),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => MyHomePage()),
-                    );
-                  },
-                  child: Text("Далее логин")),
+              child: Column(
+                children: [
+                  Text('Тут welcome'),
+                  RaisedButton(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 30, horizontal: 110),
+                      color: Colors.white,
+                      textColor: Colors.black,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(30.0)),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => LoginPage()),
+                        );
+                      },
+                      child: Text("Далее логин")),
+                ],
+              ),
             ),
           ),
         ),
