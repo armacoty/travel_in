@@ -13,8 +13,21 @@ class _LoginPageState extends State<LoginPage> {
         title: Text("APP TITLE"),
       ),
       body: Center(
-        child: Text(
-          'Content',
+        child: Container(
+          alignment: Alignment.center,
+          child: RaisedButton(
+              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 110),
+              color: Colors.white,
+              textColor: Colors.black,
+              shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(30.0)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              child: Text("Далее что-то")),
         ),
       ),
     );

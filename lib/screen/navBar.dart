@@ -38,13 +38,15 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: _pages[_seletedItem],
       ),
+
+      /// Нижняя навигационная панель
       bottomNavigationBar: new BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFFF57600),
-        unselectedItemColor: Colors.white,
-        selectedIconTheme: IconThemeData(color: Colors.blue[300]),
-        selectedLabelStyle: TextStyle(color: Colors.blue[100]),
-        selectedItemColor: Colors.white,
+        backgroundColor: Colors.white,
+        unselectedItemColor: Colors.grey,
+        selectedIconTheme: IconThemeData(color: Colors.black),
+        selectedLabelStyle: TextStyle(color: Colors.grey),
+        selectedItemColor: Colors.black,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(Icons.person, size: 35), label: "Один"),
