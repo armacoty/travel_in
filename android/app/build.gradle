@@ -27,7 +27,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 apply plugin: 'com.google.ar.sceneform.plugin'
 apply plugin: 'com.google.gms.google-services'
 
-// sceneform.asset('../sampledata/ArcticFox_Posed.gltf', 'src/main/assets/arcticfoxposed')  
+sceneform.asset('../sampledata/untitled.gltf', 'src/main/assets/untitled')  
 
 android {
     compileSdkVersion 29

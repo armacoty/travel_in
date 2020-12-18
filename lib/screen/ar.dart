@@ -13,14 +13,42 @@ class _ARPageState extends State<ARPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(""),
-      ),
-      body: Center(
-        child: Text(
-          '',
-        ),
+      body: ArCoreView(
+        onArCoreViewCreated: _onArCoreViewCreated,
+        enableTapRecognizer: true,
       ),
     );
+  }
+
+  void _onArCoreViewCreated(ArCoreController controller) {
+    arCoreController = controller;
+
+    arCoreController.onNodeTap = (name) => onTapHandler(name);
+    arCoreController.onPlaneTap = _handleOnPlaneTap;
+  }
+
+  void onTapHandler(String name) => print("ГИД: КАСАНИЕ");
+
+  void _handleOnPlaneTap(List<ArCoreHitTestResult> hits) {
+    final hit = hits.first;
+    _addGuide(hit);
+  }
+
+  void _addGuide(ArCoreHitTestResult plane) {
+    print("HIT");
+    var foxNode = ArCoreReferenceNode(
+      name: "untitled.sfb",
+      object3DFileName: "untitled.sfb",
+      position: plane.pose.translation,
+      rotation: plane.pose.rotation,
+    );
+    arCoreController.addArCoreNodeWithAnchor(foxNode);
+    //foxSay("Hi, how are you?");
+  }
+
+  @override
+  void dispose() {
+    arCoreController.dispose();
+    super.dispose();
   }
 }
