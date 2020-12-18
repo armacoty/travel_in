@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:vector_math/vector_math_64.dart' as vector;
 import 'package:flutter_tts/flutter_tts.dart';
+
 class ARPage extends StatefulWidget {
   @override
   _ARPageState createState() => _ARPageState();
@@ -9,6 +10,15 @@ class ARPage extends StatefulWidget {
 
 class _ARPageState extends State<ARPage> {
   ArCoreController arCoreController;
+  FlutterTts flutterTts = FlutterTts();
+
+  void say(String s) async {
+    var voices = flutterTts.getVoices;
+    print(voices);
+    // await flutterTts.setVoice({"name": "Name", "locale": "ru-RU"});
+    await flutterTts.setLanguage("ru-RU");
+    await flutterTts.speak(s);
+  }
 
   @override
   Widget build(BuildContext context) {
