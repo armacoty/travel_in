@@ -115,6 +115,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
+                                  /// Сбер аптека
                                   Container(
                                     width: 130,
                                     height: 130,
@@ -129,18 +130,17 @@ class _ProfilePageState extends State<ProfilePage> {
                                       ],
                                     ),
                                     child: Center(
-                                      /// todo: Почему не работает картинка
                                       child: IconButton(
+                                        iconSize: 100,
                                         icon: Image.asset(
                                           'assets/SBER/sber_eapteka.png',
-                                          height: 100,
-                                          width: 100,
-                                          color: Colors.black,
                                         ),
                                         onPressed: () {},
                                       ),
                                     ),
                                   ),
+
+                                  /// Сбер еда
                                   Container(
                                     width: 130,
                                     height: 130,
@@ -153,6 +153,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                             blurRadius: 10.0,
                                             offset: Offset(0, 3))
                                       ],
+                                    ),
+                                    child: Center(
+                                      child: IconButton(
+                                        iconSize: 100,
+                                        icon: Image.asset(
+                                          'assets/SBER/sber_food.png',
+                                        ),
+                                        onPressed: () {},
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -162,19 +171,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Container(
-                                    width: 130,
-                                    height: 130,
-                                    decoration: BoxDecoration(
-                                        color: Color(0x85FFFFFF),
-                                        borderRadius: BorderRadius.circular(20),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: Color(0x62F57600),
-                                              blurRadius: 10.0,
-                                              offset: Offset(0, 3))
-                                        ]),
-                                  ),
+                                  /// Сбер мобаил
                                   Container(
                                     width: 130,
                                     height: 130,
@@ -187,6 +184,40 @@ class _ProfilePageState extends State<ProfilePage> {
                                             blurRadius: 10.0,
                                             offset: Offset(0, 3))
                                       ],
+                                    ),
+                                    child: Center(
+                                      child: IconButton(
+                                        iconSize: 100,
+                                        icon: Image.asset(
+                                          'assets/SBER/sber_mobile.png',
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    ),
+                                  ),
+
+                                  /// Ситимобил
+                                  Container(
+                                    width: 130,
+                                    height: 130,
+                                    decoration: BoxDecoration(
+                                      color: Color(0x85FFFFFF),
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0x62F57600),
+                                            blurRadius: 10.0,
+                                            offset: Offset(0, 3))
+                                      ],
+                                    ),
+                                    child: Center(
+                                      child: IconButton(
+                                        iconSize: 100,
+                                        icon: Image.asset(
+                                          'assets/SBER/sitimobil.png',
+                                        ),
+                                        onPressed: () {},
+                                      ),
                                     ),
                                   ),
                                 ],
