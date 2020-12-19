@@ -246,7 +246,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       child: IconButton(
                                         iconSize: 100,
                                         icon: Image.asset(
-                                          'assets/SBER/sitimobil.png',
+                                          'assets/SBER/sber_sitimobil.png',
                                         ),
                                         onPressed: () {
                                           Navigator.push(
