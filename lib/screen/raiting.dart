@@ -10,6 +10,7 @@ class RaitingPage extends StatefulWidget {
 class _RaitingPageState extends State<RaitingPage> {
   @override
   Widget build(BuildContext context) {
+    var attractions = client.getAttractions();
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
@@ -27,29 +28,21 @@ class _RaitingPageState extends State<RaitingPage> {
                   context,
                   MaterialPageRoute(
                     builder: (_) => AttractionsScreen(
-                        // attractions:
-                        ),
+                      attraction: attractions[index],
+                    ),
                   ),
                 ),
                 child: Container(
                   padding: const EdgeInsets.all(20.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
-                      // Иконка
                       Container(
-                        // decoration: BoxDecoration(
-                        //   color: Color(0xff7c94b6),
-                        //   border: Border.all(
-                        //     color: Colors.grey,
-                        //     width: 40,
-                        //   ),
-                        //   borderRadius: BorderRadius.circular(25),
-                        // ),
                         child: CircleAvatar(
                           radius: 40,
-                          backgroundImage: NetworkImage(
-                              '${client.getAttractions()[index].imageUrl}'),
+                          backgroundImage:
+                              NetworkImage(attractions[index].imageUrl),
                         ),
                       ),
                       Container(
@@ -67,7 +60,7 @@ class _RaitingPageState extends State<RaitingPage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              '${client.getAttractions()[index].name}',
+                              attractions[index].name,
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 12.0,
@@ -75,9 +68,10 @@ class _RaitingPageState extends State<RaitingPage> {
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
-                            Text(
-                              'Рейтинг: ${client.getAttractions()[index].rating}',
-                            ),
+                            if (!client.getAttractions()[index].rating.isNaN)
+                              Text(
+                                'Рейтинг: ${attractions[index].rating.toStringAsPrecision(2)}',
+                              ),
                           ],
                         ),
                       ),

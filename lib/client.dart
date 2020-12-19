@@ -3,7 +3,6 @@ import 'package:geolocator/geolocator.dart';
 
 class Client {
   List<Attraction> getAttractions() {
-    // // TODO: Remove mock data
     var attr = <Attraction>[
       Attraction(
         "Успенский собор",
@@ -41,7 +40,7 @@ class Client {
         },
         imageUrl:
             "https://upload.wikimedia.org/wikipedia/commons/d/d0/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D0%B8_%D0%92%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%B0.jpg",
-        latitude: 57.62731660142579, 
+        latitude: 57.62731660142579,
         longitude: 39.884653253823345,
         rating: 3.743,
       ),
@@ -54,7 +53,7 @@ class Client {
         },
         imageUrl:
             "https://151722.selcdn.ru/monasterium.ru/resize_cache/85389/59941cad64831bc9fd3d0170114502c0/iblock/26c/26c43f671643c63609bbed7d1b26ddd0/6.jpg",
-        latitude: 57.62144666211904, 
+        latitude: 57.62144666211904,
         longitude: 39.88961378511274,
         rating: 3.445,
       ),
@@ -185,10 +184,6 @@ class Client {
         longitude: 39.89500116748213,
       ),
     ];
-    // for (Attraction attraction in attr) {
-    //   attraction.imageUrl =
-    //       'https://lh5.googleusercontent.com/p/AF1QipMe9xtZag3IX_lL0zhsaFECFH55YZ_2a3iUgJDj=w426-h240-k-no';
-    // }
     return attr;
   }
 

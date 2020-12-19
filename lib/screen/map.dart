@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:travel_in/client.dart';
 import 'package:travel_in/models/attractions_model.dart';
+import 'package:travel_in/screen/attractions.dart';
 
 class PointMap extends StatefulWidget {
   @override
@@ -65,8 +66,10 @@ class _PointMapState extends State<PointMap> {
               print("$i");
             },
             markerId: MarkerId(i.toString()),
-            position:
-                LatLng(_attractions[i].latitude, _attractions[i].longitude),
+            position: LatLng(
+              _attractions[i].latitude,
+              _attractions[i].longitude,
+            ),
             icon: await BitmapDescriptor.fromAssetImage(
               ImageConfiguration(
                 size: Size(67.5, 54),
@@ -75,7 +78,16 @@ class _PointMapState extends State<PointMap> {
             ),
             infoWindow: InfoWindow(
               title: "${_attractions[i].name}",
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => AttractionsScreen(
+                      attraction: _attractions[i],
+                    ),
+                  ),
+                );
+              },
             ),
           ),
         );
@@ -113,7 +125,10 @@ class _PointMapState extends State<PointMap> {
             markers: _markers,
             onTap: (value) => setState(() {}),
             initialCameraPosition: CameraPosition(
-              target: LatLng(57.575495, 39.857969),
+              target: LatLng(
+                _attractions.first.latitude,
+                _attractions.first.longitude,
+              ),
               zoom: 14.4746,
             ),
             onMapCreated: (GoogleMapController controller) {

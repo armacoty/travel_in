@@ -1,10 +1,6 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:travel_in/models/sberservice.dart';
 import 'package:travel_in/screen/embed.dart';
-import 'package:travel_in/screen/webview.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -112,7 +108,10 @@ class _ProfilePageState extends State<ProfilePage> {
                         ),
 
                         SizedBox(height: 20),
-                        Text('Последние используемые сервисы'),
+                        Padding(
+                          padding: const EdgeInsets.only(bottom: 24.0),
+                          child: Text('Последние используемые сервисы'),
+                        ),
 
                         /// СБЕР Сервисы
                         Padding(
