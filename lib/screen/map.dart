@@ -20,71 +20,88 @@ class _PointMapState extends State<PointMap> {
 
   @override
   void initState() {
-    getMyLocation();
-    getMarkers();
+    try {
+      getMyLocation();
+      getMarkers();
+    } catch (e) {
+      print(e);
+    }
+
     super.initState();
   }
 
   void getMyLocation() async {
-    final myPosition = await client.determinePosition();
-    print(myPosition);
-    latitude = myPosition.latitude;
-    longitude = myPosition.longitude;
-    getMarkers();
-    _changeCameraPosition();
-    setState(() {});
+    try {
+      final myPosition = await client.determinePosition();
+      latitude = myPosition.latitude;
+      longitude = myPosition.longitude;
+      getMarkers();
+      setState(() {});
+      _changeCameraPosition();
+    } catch (e) {
+      print(e);
+    }
   }
 
   void getMarkers() async {
-    _markers = {};
-    _markers.add(
-      Marker(
-        markerId: MarkerId('my_position'),
-        position: LatLng(latitude, longitude),
-        icon: await BitmapDescriptor.fromAssetImage(
-          ImageConfiguration(
-            size: Size(67.5, 54),
-          ),
-          'assets/map/green_marker.png',
-        ),
-      ),
-    );
-    for (int i = 0; i < _attractions.length; i++) {
+    try {
+      _markers = {};
       _markers.add(
         Marker(
-          onTap: () {
-            print("$i");
-          },
-          markerId: MarkerId(i.toString()),
-          position: LatLng(_attractions[i].latitude, _attractions[i].longitude),
+          markerId: MarkerId('my_position'),
+          position: LatLng(latitude, longitude),
           icon: await BitmapDescriptor.fromAssetImage(
             ImageConfiguration(
               size: Size(67.5, 54),
             ),
-            'assets/map/marker.png',
-          ),
-          infoWindow: InfoWindow(
-            title: "${_attractions[i].name}",
-            onTap: () {},
+            'assets/map/green_marker.png',
           ),
         ),
       );
+      for (int i = 0; i < _attractions.length; i++) {
+        _markers.add(
+          Marker(
+            onTap: () {
+              print("$i");
+            },
+            markerId: MarkerId(i.toString()),
+            position:
+                LatLng(_attractions[i].latitude, _attractions[i].longitude),
+            icon: await BitmapDescriptor.fromAssetImage(
+              ImageConfiguration(
+                size: Size(67.5, 54),
+              ),
+              'assets/map/marker.png',
+            ),
+            infoWindow: InfoWindow(
+              title: "${_attractions[i].name}",
+              onTap: () {},
+            ),
+          ),
+        );
+      }
+    } catch (e) {
+      print(e);
     }
   }
 
   Future<void> _changeCameraPosition() async {
-    final GoogleMapController controller = await _googleMapController.future;
-    controller.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: LatLng(
-            latitude,
-            longitude,
+    try {
+      final GoogleMapController controller = await _googleMapController.future;
+      controller.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: LatLng(
+              latitude,
+              longitude,
+            ),
+            zoom: 14.4746,
           ),
-          zoom: 14.4746,
         ),
-      ),
-    );
+      );
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
