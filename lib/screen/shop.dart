@@ -5,34 +5,49 @@ class ShopPage extends StatefulWidget {
   _ShopPageState createState() => _ShopPageState();
 }
 
-final String serviceSber = 'Сервис';
-
 /// todo: Сделать Column\Row отдельным виджетом
 class _ShopPageState extends State<ShopPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: const EdgeInsets.only(top: 30.0, left: 30, right: 30),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/backgrounds/2.png"),
+            image: AssetImage("assets/backgrounds/3.png"),
             fit: BoxFit.cover,
           ),
         ),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              SizedBox(height: 35),
-              for (var i = 0; i < 4; i++) ...[row(), SizedBox(height: 20)]
-            ],
-          ),
+        child: GridView.count(
+          crossAxisCount: 2,
+          children: List.generate(8, (index) {
+            return Center(
+              child: Container(
+                padding: const EdgeInsets.all(8.0),
+                width: 150,
+                height: 150,
+                decoration: BoxDecoration(
+                  color: Color(0x85FFFFFF),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Center(
+                  child: IconButton(
+                    iconSize: 100,
+                    icon: Image.asset(
+                      'assets/SBER/sber_eapteka.png',
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+              ),
+            );
+          }),
         ),
       ),
     );
   }
 }
-
+/*
 Widget row() {
   return Row(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -68,9 +83,17 @@ Widget row() {
                   offset: Offset(0, 3))
             ]),
         child: Center(
-          child: Text(serviceSber),
+          child: IconButton(
+            iconSize: 100,
+            icon: Image.asset(
+              '',
+              // 'assets/SBER/sber_eapteka.png',
+            ),
+            onPressed: () {},
+          ),
         ),
       ),
     ],
   );
 }
+*/
