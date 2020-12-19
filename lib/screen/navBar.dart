@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:travel_in/screen/home.dart';
+import 'package:travel_in/screen/map.dart';
 import 'package:travel_in/screen/prear.dart';
+import 'package:travel_in/screen/profile.dart';
+import 'package:travel_in/screen/raiting.dart';
+import 'package:travel_in/screen/shop.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -15,10 +18,11 @@ class _MyHomePageState extends State<MyHomePage> {
   /// Страницы,
   var _pages = [
     /// todo: добавить потом другие страницы
-    HomePage(),
+    RaitingPage(),
+    ShopPage(),
+    PointMap(),
     PreARPage(),
-    HomePage(),
-    HomePage(),
+    ProfilePage(),
   ];
 
   @override
@@ -29,22 +33,34 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       /// Нижняя навигационная панель
-      bottomNavigationBar: new BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Colors.white,
-        unselectedItemColor: Colors.grey,
-        selectedIconTheme: IconThemeData(color: Colors.black),
+        backgroundColor: Color(0xFFFFB900),
+        unselectedItemColor: Colors.black,
+        selectedIconTheme: IconThemeData(color: Colors.white),
         selectedLabelStyle: TextStyle(color: Colors.grey),
         selectedItemColor: Colors.black,
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Icons.person, size: 35), label: "Один"),
+              icon: Image.asset('assets/favorites.png',
+                  width: 30, height: 30, fit: BoxFit.contain),
+              label: "Рейтинг"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person, size: 35), label: "Гид"),
+              icon: Image.asset('assets/shopping-cart.png',
+                  width: 30, height: 30, fit: BoxFit.contain),
+              label: "Магазин"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.message, size: 35), label: "Три"),
+              icon: Image.asset('assets/placeholder.png',
+                  width: 30, height: 30, fit: BoxFit.contain),
+              label: "Карта"),
           BottomNavigationBarItem(
-              icon: Icon(Icons.looks_6_outlined, size: 35), label: "Четыре"),
+              icon: Image.asset('assets/bear.png',
+                  width: 30, height: 30, fit: BoxFit.contain),
+              label: "Гид"),
+          BottomNavigationBarItem(
+              icon: Image.asset('assets/user.png',
+                  width: 30, height: 28, fit: BoxFit.contain),
+              label: "Профиль"),
         ],
         currentIndex: _seletedItem,
         onTap: (index) {
