@@ -38,22 +38,27 @@ class _RaitingPageState extends State<RaitingPage> {
                     children: <Widget>[
                       // Иконка
                       Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xff7c94b6),
-                          border: Border.all(
-                            color: Colors.grey,
-                            width: 40,
-                          ),
-                          borderRadius: BorderRadius.circular(25),
+                        // decoration: BoxDecoration(
+                        //   color: Color(0xff7c94b6),
+                        //   border: Border.all(
+                        //     color: Colors.grey,
+                        //     width: 40,
+                        //   ),
+                        //   borderRadius: BorderRadius.circular(25),
+                        // ),
+                        child: CircleAvatar(
+                          radius: 40,
+                          backgroundImage: NetworkImage(
+                              '${client.getAttractions()[index].imageUrl}'),
                         ),
-                        child: Image.asset(
-                            '${client.getAttractions()[index].imageUrl}'),
                       ),
                       Container(
                         width: 220,
                         height: 75,
                         padding: EdgeInsets.symmetric(
-                            horizontal: 20.0, vertical: 20.0),
+                          horizontal: 20.0,
+                          vertical: 20.0,
+                        ),
                         decoration: BoxDecoration(
                           color: Color(0x85FFFFFF),
                           borderRadius: BorderRadius.circular(30),

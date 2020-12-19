@@ -1,4 +1,5 @@
 import 'package:travel_in/models/attractions_model.dart';
+import 'package:geolocator/geolocator.dart';
 
 class Client {
   List<Attraction> getAttractions() {
@@ -16,47 +17,62 @@ class Client {
         longitude: 39.9018840690959,
         rating: 4.528,
       ),
-      Attraction("Часовня Казанской Богоматери", 2,
-          questions: {
-            'Когда она была построена?':
-                'Памятник установлен в ознаменование выхода из стен монастыря в 1612 году ополчения Минина и Пожарского.',
-            'Кем она была спроектирована?': 'архитектор - Г. Л. Дайнов',
-          },
-          latitude: 57.620409583131355,
-          longitude: 39.890178940931484,
-          rating: 4.132),
-      Attraction("Драматический театр им. Ф.Г. Волкова", 3,
-          questions: {
-            'Когда он был основан?': 'В 1751 году',
-            'Сколько в нем залов?': 'ответ',
-          },
-          latitude: 57.62702691722826,
-          longitude: 39.884728813517356,
-          rating: 3.743),
-      Attraction("Спасо-Преображенский Мужской Монастырь", 4,
-          questions: {
-            'Когда он был построен?': 'ответ',
-            'Кем он был спроектирован?': 'ответ',
-          },
-          latitude: 57.71829474073271,
-          longitude: 39.90042845520624,
-          rating: 3.445),
-      Attraction("Казанский женский монастырь", 5,
-          questions: {
-            'Вопрос': 'ответ',
-            'Вопрос': 'ответ',
-          },
-          latitude: 57.739344277642935,
-          longitude: 39.93016655975159,
-          rating: 2.271),
-      Attraction("Демидовский столп", 6,
-          questions: {
-            'Вопрос': 'ответ',
-            'Вопрос': 'ответ',
-          },
-          latitude: 57.62518079146104,
-          longitude: 39.897172482827045,
-          rating: 1.48),
+      Attraction(
+        "Часовня Казанской Богоматери",
+        2,
+        questions: {
+          'Когда она была построена?':
+              'Памятник установлен в ознаменование выхода из стен монастыря в 1612 году ополчения Минина и Пожарского.',
+          'Кем она была спроектирована?': 'архитектор - Г. Л. Дайнов',
+        },
+        latitude: 57.620409583131355,
+        longitude: 39.890178940931484,
+        rating: 4.132,
+      ),
+      Attraction(
+        "Драматический театр им. Ф.Г. Волкова",
+        3,
+        questions: {
+          'Когда он был основан?': 'В 1751 году',
+          'Сколько в нем залов?': 'ответ',
+        },
+        latitude: 57.62702691722826,
+        longitude: 39.884728813517356,
+        rating: 3.743,
+      ),
+      Attraction(
+        "Спасо-Преображенский Мужской Монастырь",
+        4,
+        questions: {
+          'Когда он был построен?': 'ответ',
+          'Кем он был спроектирован?': 'ответ',
+        },
+        latitude: 57.71829474073271,
+        longitude: 39.90042845520624,
+        rating: 3.445,
+      ),
+      Attraction(
+        "Казанский женский монастырь",
+        5,
+        questions: {
+          'Вопрос': 'ответ',
+          'Вопрос': 'ответ',
+        },
+        latitude: 57.739344277642935,
+        longitude: 39.93016655975159,
+        rating: 2.271,
+      ),
+      Attraction(
+        "Демидовский столп",
+        6,
+        questions: {
+          'Вопрос': 'ответ',
+          'Вопрос': 'ответ',
+        },
+        latitude: 57.62518079146104,
+        longitude: 39.897172482827045,
+        rating: 1.48,
+      ),
       Attraction(
         "Вечный огонь",
         7,
@@ -180,9 +196,36 @@ class Client {
     ];
     for (Attraction attraction in attr) {
       attraction.imageUrl =
-          'https://upload.wikimedia.org/wikipedia/commons/d/d0/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D0%B8_%D0%92%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%B0.jpg';
+          'https://lh5.googleusercontent.com/p/AF1QipMe9xtZag3IX_lL0zhsaFECFH55YZ_2a3iUgJDj=w426-h240-k-no';
     }
     return attr;
+  }
+
+  Future<Position> determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permantly denied, we cannot request permissions.');
+    }
+
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission != LocationPermission.whileInUse &&
+          permission != LocationPermission.always) {
+        return Future.error(
+            'Location permissions are denied (actual value: $permission).');
+      }
+    }
+
+    return await Geolocator.getCurrentPosition();
   }
 }
 
