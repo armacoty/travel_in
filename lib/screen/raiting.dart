@@ -70,18 +70,8 @@ class _RaitingPageState extends State<RaitingPage> {
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
-                            Container(
-                              width: MediaQuery.of(context).size.width * 0.4,
-                              // child: Text(
-                              //   chat.text,
-                              //   style: TextStyle(
-                              //     color: Colors.black,
-                              //     fontSize: 11.0,
-                              //     fontWeight: FontWeight.w600,
-                              //   ),
-                              //   overflow: TextOverflow.ellipsis,
-                              // ),
-                              child: Text('Описание'),
+                            Text(
+                              'Рейтинг: ${client.getAttractions()[index].rating}',
                             ),
                           ],
                         ),

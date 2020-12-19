@@ -41,7 +41,7 @@ Widget row() {
         height: 140,
         width: 140,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Color(0x9AFFFFFF),
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
@@ -59,7 +59,7 @@ Widget row() {
         height: 140,
         width: 140,
         decoration: BoxDecoration(
-            color: Colors.white,
+            color: Color(0x9AFFFFFF),
             borderRadius: BorderRadius.circular(30),
             boxShadow: [
               BoxShadow(
