@@ -12,13 +12,7 @@ class _ARPageState extends State<ARPage> {
   ArCoreController arCoreController;
   FlutterTts flutterTts = FlutterTts();
 
-  Map<String, String> getQuestions() {
-    return <String, String>{
-      'Когда оно было построено?':
-          'Собор с колокольней и роскошными росписями, был построен в 2010 г. по образцу прежней церкви.',
-      'Какая у него высота?': '50 метров.'
-    };
-  }
+  Map<String, String> getQuestions() => client.getAttractions().first.questions;
 
   @override
   Widget build(BuildContext context) {
@@ -66,22 +60,10 @@ class _ARPageState extends State<ARPage> {
   }
 
   void say(String s) async {
-    // var voices = flutterTts.getVoices;
-    // var v = (await voices as List);
-    // for (var element in v) {
-    //   if (element['locale'] == 'ru-RU') {
-    //     print(element);
-    //     await flutterTts
-    //         .setVoice({"name": element['name'], "locale": element['locale']});
-    //   }
-    // }
     await flutterTts.setPitch(0.5);
     await flutterTts.setLanguage("ru-RU");
     await flutterTts.awaitSpeakCompletion(true);
     await flutterTts.speak(s);
-    // await flutterTts.setVoice({"name": "ru-ru-x-rue-local", "locale": "ru-RU"});
-    // await flutterTts.setLanguage("ru-RU");
-    // await flutterTts.speak(s);
   }
 
   void _onArCoreViewCreated(ArCoreController controller) {
