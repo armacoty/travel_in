@@ -192,14 +192,15 @@ class _ShopPageState extends State<ShopPage> {
                   height: 140,
                   width: 140,
                   decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Color(0x62F57600),
-                            blurRadius: 10.0,
-                            offset: Offset(0, 3))
-                      ]),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Color(0x62F57600),
+                          blurRadius: 10.0,
+                          offset: Offset(0, 3))
+                    ],
+                  ),
                   child: Center(
                     child: Text(serviceSber),
                   ),
