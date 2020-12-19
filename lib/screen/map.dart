@@ -1,12 +1,8 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:travel_in/client.dart';
 import 'package:travel_in/models/attractions_model.dart';
-import 'package:travel_in/models/glass_point.dart';
-import 'package:travel_in/sort_constants.dart';
 
 class PointMap extends StatefulWidget {
   @override
@@ -22,9 +18,6 @@ class _PointMapState extends State<PointMap> {
 
   double latitude = 0.0, longitude = 0.0;
 
-  ///  Калькулятор дистанции.
-  /// Принимает координаты точки А и точки Б,
-  /// а потом рассчитывает расстояние в километрах и выводит его текстом
   @override
   void initState() {
     getMyLocation();
