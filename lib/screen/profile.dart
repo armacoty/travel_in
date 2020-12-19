@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:travel_in/models/sberservice.dart';
+import 'package:travel_in/screen/embed.dart';
 import 'package:travel_in/screen/webview.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -122,71 +124,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   /// Сбер аптека
-                                  Container(
-                                    width: 130,
-                                    height: 130,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x85FFFFFF),
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color(0x62F57600),
-                                            blurRadius: 10.0,
-                                            offset: Offset(0, 3))
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: IconButton(
-                                        iconSize: 100,
-                                        icon: Image.asset(
-                                          'assets/SBER/sber_eapteka.png',
-                                        ),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => WebViewExample(
-                                                  'https://www.sberbank.com/ru/eco/eapteka'),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ),
+                                  sberCard(context, 0),
 
                                   /// Сбер еда
-                                  Container(
-                                    width: 130,
-                                    height: 130,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x85FFFFFF),
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color(0x62F57600),
-                                            blurRadius: 10.0,
-                                            offset: Offset(0, 3))
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: IconButton(
-                                        iconSize: 100,
-                                        icon: Image.asset(
-                                          'assets/SBER/sber_food.png',
-                                        ),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  WebViewExample(
-                                                      'https://plazius.ru/'),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ),
+                                  sberCard(context, 1),
                                 ],
                               ),
                               SizedBox(height: 20),
@@ -195,72 +136,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
                                   /// Сбер мобаил
-                                  Container(
-                                    width: 130,
-                                    height: 130,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x85FFFFFF),
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color(0x62F57600),
-                                            blurRadius: 10.0,
-                                            offset: Offset(0, 3))
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: IconButton(
-                                        iconSize: 100,
-                                        icon: Image.asset(
-                                          'assets/SBER/sber_mobile.png',
-                                        ),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  WebViewExample(
-                                                      'https://sbermobile.ru/'),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ),
+                                  sberCard(context, 2),
 
                                   /// Ситимобил
-                                  Container(
-                                    width: 130,
-                                    height: 130,
-                                    decoration: BoxDecoration(
-                                      color: Color(0x85FFFFFF),
-                                      borderRadius: BorderRadius.circular(20),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Color(0x62F57600),
-                                            blurRadius: 10.0,
-                                            offset: Offset(0, 3))
-                                      ],
-                                    ),
-                                    child: Center(
-                                      child: IconButton(
-                                        iconSize: 100,
-                                        icon: Image.asset(
-                                          'assets/SBER/sber_sitimobil.png',
-                                        ),
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                                  WebViewExample(
-                                                      'https://city-mobil.ru/'),
-                                            ),
-                                          );
-                                        },
-                                      ),
-                                    ),
-                                  ),
+                                  sberCard(context, 5),
                                 ],
                               ),
                             ],
@@ -274,6 +153,41 @@ class _ProfilePageState extends State<ProfilePage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget sberCard(BuildContext context, int id) {
+    return Container(
+      width: 130,
+      height: 130,
+      decoration: BoxDecoration(
+        color: Color(0x85FFFFFF),
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+              color: Color(0x62F57600), blurRadius: 10.0, offset: Offset(0, 3))
+        ],
+      ),
+      child: Center(
+        child: IconButton(
+          iconSize: 100,
+          icon: Image.asset(
+            links[id].icon,
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Embed(
+                  url: links[id].url,
+                  title: links[id].title,
+                  color: links[id].color,
+                ),
+              ),
+            );
+          },
+        ),
       ),
     );
   }
