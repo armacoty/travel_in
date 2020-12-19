@@ -141,7 +141,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                         icon: Image.asset(
                                           'assets/SBER/sber_eapteka.png',
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => WebViewExample(
+                                                  'https://www.sberbank.com/ru/eco/eapteka'),
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),
@@ -171,7 +179,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                             context,
                                             MaterialPageRoute(
                                               builder: (context) =>
-                                                  WebViewExample(),
+                                                  WebViewExample(
+                                                      'https://plazius.ru/'),
                                             ),
                                           );
                                         },
@@ -205,7 +214,16 @@ class _ProfilePageState extends State<ProfilePage> {
                                         icon: Image.asset(
                                           'assets/SBER/sber_mobile.png',
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WebViewExample(
+                                                      'https://sbermobile.ru/'),
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),
@@ -230,7 +248,16 @@ class _ProfilePageState extends State<ProfilePage> {
                                         icon: Image.asset(
                                           'assets/SBER/sitimobil.png',
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WebViewExample(
+                                                      'https://city-mobil.ru/'),
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),

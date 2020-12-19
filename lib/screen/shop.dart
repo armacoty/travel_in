@@ -1,3 +1,6 @@
+import 'dart:convert';
+import 'dart:js';
+
 import 'package:flutter/material.dart';
 
 class ShopPage extends StatefulWidget {
@@ -5,8 +8,20 @@ class ShopPage extends StatefulWidget {
   _ShopPageState createState() => _ShopPageState();
 }
 
-/// todo: Сделать Column\Row отдельным виджетом
 class _ShopPageState extends State<ShopPage> {
+  Map<String, String> getLinks() {
+    return <String, String>{
+      '/assets/SBER/sber_eapteka.png':
+          'https://www.sberbank.com/ru/eco/eapteka',
+      '/assets/SBER/sber_food.png': 'https://plazius.ru/',
+      '/assets/SBER/sber_mobile.png': 'https://sbermobile.ru/',
+      '/assets/SBER/sber_okko.png': 'https://okko.tv/',
+      '/assets/SBER/sber_samokat.png':
+          'https://www.sberbank.com/ru/eco/samokat',
+      '/assets/SBER/sber_sitimobil.png': 'https://city-mobil.ru/',
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,79 +36,34 @@ class _ShopPageState extends State<ShopPage> {
         child: GridView.count(
           crossAxisCount: 2,
           children: List.generate(8, (index) {
-            return Center(
-              child: Container(
-                padding: const EdgeInsets.all(8.0),
-                width: 150,
-                height: 150,
-                decoration: BoxDecoration(
-                  color: Color(0x85FFFFFF),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Center(
-                  child: IconButton(
-                    iconSize: 100,
-                    icon: Image.asset(
-                      'assets/SBER/sber_eapteka.png',
-                    ),
-                    onPressed: () {},
-                  ),
-                ),
-              ),
-            );
+            return sberCard(index);
           }),
         ),
       ),
     );
   }
-}
-/*
-Widget row() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-    children: [
-      Container(
-        height: 140,
-        width: 140,
+
+  Widget sberCard(int i) {
+    return Center(
+      child: Container(
+        padding: const EdgeInsets.all(8.0),
+        width: 150,
+        height: 150,
         decoration: BoxDecoration(
-          color: Color(0x9AFFFFFF),
-          borderRadius: BorderRadius.circular(30),
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x62F57600),
-              blurRadius: 10.0,
-              offset: Offset(0, 3),
-            ),
-          ],
+          color: Color(0x85FFFFFF),
+          borderRadius: BorderRadius.circular(20),
         ),
-        child: Center(
-          child: Text(serviceSber),
-        ),
-      ),
-      Container(
-        height: 140,
-        width: 140,
-        decoration: BoxDecoration(
-            color: Color(0x9AFFFFFF),
-            borderRadius: BorderRadius.circular(30),
-            boxShadow: [
-              BoxShadow(
-                  color: Color(0x62F57600),
-                  blurRadius: 10.0,
-                  offset: Offset(0, 3))
-            ]),
         child: Center(
           child: IconButton(
             iconSize: 100,
             icon: Image.asset(
-              '',
-              // 'assets/SBER/sber_eapteka.png',
+              getLinks().keys.toList()[i],
+              fit: BoxFit.contain,
             ),
             onPressed: () {},
           ),
         ),
       ),
-    ],
-  );
+    );
+  }
 }
-*/
