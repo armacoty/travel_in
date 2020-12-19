@@ -190,4 +190,4 @@ class Client {
   }
 }
 
-Client client = new Client();
+final Client client = new Client();
