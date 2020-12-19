@@ -5,5 +5,8 @@ class Attraction {
 
   Map<String, String> questions = {};
 
-  Attraction(this.name, this.id, {this.questions});
+  double latitude, longitude;
+
+  Attraction(this.name, this.id,
+      {this.questions, this.latitude, this.longitude});
 }
