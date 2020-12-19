@@ -20,6 +20,8 @@ The navigation delegate is set to block navigation to the youtube website.
 ''';
 
 class WebViewExample extends StatefulWidget {
+  WebViewExample(String ref);
+
   @override
   _WebViewExampleState createState() => _WebViewExampleState();
 }
@@ -27,6 +29,10 @@ class WebViewExample extends StatefulWidget {
 class _WebViewExampleState extends State<WebViewExample> {
   final Completer<WebViewController> _controller =
       Completer<WebViewController>();
+
+/////////////////////////////
+  get ref => null;
+/////////////////////////////
 
   @override
   void initState() {
@@ -38,18 +44,15 @@ class _WebViewExampleState extends State<WebViewExample> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter WebView example'),
-        // This drop down menu demonstrates that Flutter widgets can be shown over the web view.
+        title: const Text('WebView'),
         actions: <Widget>[
           NavigationControls(_controller.future),
           SampleMenu(_controller.future),
         ],
       ),
-      // We're using a Builder here so we have a context that is below the Scaffold
-      // to allow calling Scaffold.of(context) so we can show a snackbar.
       body: Builder(builder: (BuildContext context) {
         return WebView(
-          initialUrl: 'https://flutter.dev',
+          initialUrl: ref,
           javascriptMode: JavascriptMode.unrestricted,
           onWebViewCreated: (WebViewController webViewController) {
             _controller.complete(webViewController);
