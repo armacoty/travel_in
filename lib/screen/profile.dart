@@ -109,9 +109,12 @@ class _ProfilePageState extends State<ProfilePage> {
                               fontSize: 10),
                         ),
 
+                        SizedBox(height: 20),
+                        Text('Последние используемые сервисы'),
+
                         /// СБЕР Сервисы
                         Padding(
-                          padding: const EdgeInsets.all(30.0),
+                          padding: const EdgeInsets.all(5.0),
                           child: Column(
                             children: [
                               Row(

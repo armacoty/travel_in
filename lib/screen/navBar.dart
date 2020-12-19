@@ -33,43 +33,49 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       /// Нижняя навигационная панель
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Color(0xFFFFB900),
-        unselectedItemColor: Colors.black,
-        selectedIconTheme: IconThemeData(color: Colors.white),
-        selectedLabelStyle: TextStyle(color: Colors.grey),
-        selectedItemColor: Colors.black,
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/favorites.png',
-                  width: 30, height: 30, fit: BoxFit.contain),
-              label: "Рейтинг"),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/shopping-cart.png',
-                  width: 30, height: 30, fit: BoxFit.contain),
-              label: "Магазин"),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/placeholder.png',
-                  width: 30, height: 30, fit: BoxFit.contain),
-              label: "Карта"),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/bear.png',
-                  width: 30, height: 30, fit: BoxFit.contain),
-              label: "Гид"),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/user.png',
-                  width: 30, height: 28, fit: BoxFit.contain),
-              label: "Профиль"),
-        ],
-        currentIndex: _seletedItem,
-        onTap: (index) {
-          setState(
-            () {
-              _seletedItem = index;
-            },
-          );
-        },
+      bottomNavigationBar: ClipRRect(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(20),
+          topLeft: Radius.circular(20),
+        ),
+        child: BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Color(0xFFFFB900),
+          unselectedItemColor: Colors.black,
+          selectedIconTheme: IconThemeData(color: Colors.white),
+          selectedLabelStyle: TextStyle(color: Colors.grey),
+          selectedItemColor: Colors.black,
+          items: <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/favorites.png',
+                    width: 30, height: 30, fit: BoxFit.contain),
+                label: "Рейтинг"),
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/shopping-cart.png',
+                    width: 30, height: 30, fit: BoxFit.contain),
+                label: "Магазин"),
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/placeholder.png',
+                    width: 30, height: 30, fit: BoxFit.contain),
+                label: "Карта"),
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/bear.png',
+                    width: 30, height: 30, fit: BoxFit.contain),
+                label: "Гид"),
+            BottomNavigationBarItem(
+                icon: Image.asset('assets/user.png',
+                    width: 30, height: 28, fit: BoxFit.contain),
+                label: "Профиль"),
+          ],
+          currentIndex: _seletedItem,
+          onTap: (index) {
+            setState(
+              () {
+                _seletedItem = index;
+              },
+            );
+          },
+        ),
       ),
     );
   }

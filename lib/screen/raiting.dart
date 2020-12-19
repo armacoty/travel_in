@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_in/client.dart';
 import 'package:travel_in/screen/attractions.dart';
 
 class RaitingPage extends StatefulWidget {
@@ -10,96 +11,86 @@ class _RaitingPageState extends State<RaitingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30.0),
-              topRight: Radius.circular(30.0),
-            ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/backgrounds/4.png"),
+            fit: BoxFit.cover,
           ),
-          child: ClipRRect(
-            child: ListView.builder(
-              itemCount: 5,
-              itemBuilder: (BuildContext context, int index) {
-                return GestureDetector(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (_) => AttractionsScreen(
-                          // attractions:
-                          ),
-                    ),
-                  ),
-                  child: Container(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10.0, vertical: 15.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Row(
-                          children: <Widget>[
-                            CircleAvatar(
-                              backgroundColor: Color(0xFF777777),
-                              radius: 25.0,
-
-                              /// backgroundImage: AssetImage(chat.sender.imageUrl),
-                            ),
-                            SizedBox(width: 10.0),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                // Text(
-                                //   chat.sender.name,
-                                //   style: TextStyle(
-                                //     color: Colors.black,
-                                //     fontSize: 13.0,
-                                //     fontWeight: FontWeight.bold,
-                                //   ),
-                                //   overflow: TextOverflow.ellipsis,
-                                // ),
-                                Text('Название'),
-                                SizedBox(height: 5.0),
-                                Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.4,
-                                  // child: Text(
-                                  //   chat.text,
-                                  //   style: TextStyle(
-                                  //     color: Colors.black,
-                                  //     fontSize: 11.0,
-                                  //     fontWeight: FontWeight.w600,
-                                  //   ),
-                                  //   overflow: TextOverflow.ellipsis,
-                                  // ),
-                                  child: Text('Описание'),
-                                ),
-                              ],
-                            ),
-                          ],
+        ),
+        child: ClipRRect(
+          child: ListView.builder(
+            itemCount: client.getAttractions().length,
+            itemBuilder: (BuildContext context, int index) {
+              return GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => AttractionsScreen(
+                        // attractions:
                         ),
-                        Column(
+                  ),
+                ),
+                child: Container(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      // Иконка
+                      Container(
+                        decoration: BoxDecoration(
+                          color: Color(0xff7c94b6),
+                          border: Border.all(
+                            color: Colors.grey,
+                            width: 40,
+                          ),
+                          borderRadius: BorderRadius.circular(25),
+                        ),
+                        child: Image.asset(
+                            '${client.getAttractions()[index].imageUrl}'),
+                      ),
+                      Container(
+                        width: 220,
+                        height: 75,
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 20.0),
+                        decoration: BoxDecoration(
+                          color: Color(0x85FFFFFF),
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Text(
-                              'Рейтинг',
+                              '${client.getAttractions()[index].name}',
                               style: TextStyle(
-                                color: Colors.grey,
-                                fontSize: 15.0,
+                                color: Colors.black,
+                                fontSize: 12.0,
                                 fontWeight: FontWeight.bold,
                               ),
                               overflow: TextOverflow.ellipsis,
                             ),
-                            SizedBox(height: 5.0),
+                            Container(
+                              width: MediaQuery.of(context).size.width * 0.4,
+                              // child: Text(
+                              //   chat.text,
+                              //   style: TextStyle(
+                              //     color: Colors.black,
+                              //     fontSize: 11.0,
+                              //     fontWeight: FontWeight.w600,
+                              //   ),
+                              //   overflow: TextOverflow.ellipsis,
+                              // ),
+                              child: Text('Описание'),
+                            ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           ),
         ),
       ),
