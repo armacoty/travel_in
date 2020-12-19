@@ -59,7 +59,9 @@ class _PointMapState extends State<PointMap> {
     for (int i = 0; i < _attractions.length; i++) {
       _markers.add(
         Marker(
-          onTap: () {},
+          onTap: () {
+            print("$i");
+          },
           markerId: MarkerId(i.toString()),
           position: LatLng(_attractions[i].latitude, _attractions[i].longitude),
           icon: await BitmapDescriptor.fromAssetImage(
@@ -67,6 +69,10 @@ class _PointMapState extends State<PointMap> {
               size: Size(67.5, 54),
             ),
             'assets/map/marker.png',
+          ),
+          infoWindow: InfoWindow(
+            title: "${_attractions[i].name}",
+            onTap: () {},
           ),
         ),
       );

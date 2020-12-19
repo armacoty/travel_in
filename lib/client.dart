@@ -41,8 +41,8 @@ class Client {
         },
         imageUrl:
             "https://upload.wikimedia.org/wikipedia/commons/d/d0/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D0%B8_%D0%92%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%B0.jpg",
-        latitude: 57.62702691722826,
-        longitude: 39.884728813517356,
+        latitude: 57.62731660142579, 
+        longitude: 39.884653253823345,
         rating: 3.743,
       ),
       Attraction(
@@ -54,8 +54,8 @@ class Client {
         },
         imageUrl:
             "https://151722.selcdn.ru/monasterium.ru/resize_cache/85389/59941cad64831bc9fd3d0170114502c0/iblock/26c/26c43f671643c63609bbed7d1b26ddd0/6.jpg",
-        latitude: 57.71829474073271,
-        longitude: 39.90042845520624,
+        latitude: 57.62144666211904, 
+        longitude: 39.88961378511274,
         rating: 3.445,
       ),
       Attraction(
