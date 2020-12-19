@@ -105,6 +105,8 @@ class _ProfilePageState extends State<ProfilePage> {
                               fontWeight: FontWeight.w100,
                               fontSize: 10),
                         ),
+
+                        /// СБЕР Сервисы
                         Padding(
                           padding: const EdgeInsets.all(30.0),
                           child: Column(
@@ -117,14 +119,27 @@ class _ProfilePageState extends State<ProfilePage> {
                                     width: 130,
                                     height: 130,
                                     decoration: BoxDecoration(
-                                        color: Color(0x85FFFFFF),
-                                        borderRadius: BorderRadius.circular(20),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              color: Color(0x62F57600),
-                                              blurRadius: 10.0,
-                                              offset: Offset(0, 3))
-                                        ]),
+                                      color: Color(0x85FFFFFF),
+                                      borderRadius: BorderRadius.circular(20),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Color(0x62F57600),
+                                            blurRadius: 10.0,
+                                            offset: Offset(0, 3))
+                                      ],
+                                    ),
+                                    child: Center(
+                                      /// todo: Почему не работает картинка
+                                      child: IconButton(
+                                        icon: Image.asset(
+                                          'assets/SBER/sber_eapteka.png',
+                                          height: 100,
+                                          width: 100,
+                                          color: Colors.black,
+                                        ),
+                                        onPressed: () {},
+                                      ),
+                                    ),
                                   ),
                                   Container(
                                     width: 130,
