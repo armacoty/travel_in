@@ -15,7 +15,7 @@ class _ProfilePageState extends State<ProfilePage> {
             /// Background IMG #2
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/2.png"),
+                image: AssetImage("assets/backgrounds/2.png"),
                 fit: BoxFit.cover,
               ),
             ),

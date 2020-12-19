@@ -14,7 +14,7 @@ class _WelcomePageState extends State<WelcomePage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/1.png"),
+            image: AssetImage("assets/backgrounds/1.png"),
             fit: BoxFit.cover,
           ),
         ),
