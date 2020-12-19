@@ -114,20 +114,32 @@ class _PointMapState extends State<PointMap> {
   }
 
   void getMarkers() async {
-    _markers.add(Marker(
+    _markers.add(
+      Marker(
         markerId: MarkerId('my_position'),
         position: LatLng(longitude, latitude),
         icon: await BitmapDescriptor.fromAssetImage(
-            ImageConfiguration(size: Size(67.5, 54)),
-            'images/navbar/map/red_marker.png')));
+          ImageConfiguration(
+            size: Size(67.5, 54),
+          ),
+          'images/navbar/map/red_marker.png',
+        ),
+      ),
+    );
     for (int i = 0; i < glassPoints.length; i++) {
-      _markers.add(Marker(
+      _markers.add(
+        Marker(
           onTap: () => getShowSheet(i),
           markerId: MarkerId(i.toString()),
           position: LatLng(glassPoints[i].lat, glassPoints[i].lng),
           icon: await BitmapDescriptor.fromAssetImage(
-              ImageConfiguration(size: Size(67.5, 54)),
-              'images/navbar/map/green_marker.png')));
+            ImageConfiguration(
+              size: Size(67.5, 54),
+            ),
+            'images/navbar/map/green_marker.png',
+          ),
+        ),
+      );
     }
   }
 
@@ -148,25 +160,32 @@ class _PointMapState extends State<PointMap> {
 
   Future<void> _changeCameraPosition(int value) async {
     final GoogleMapController controller = await _googleMapController.future;
-    controller.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(glassPoints[value].lat, glassPoints[value].lng),
-        zoom: 14.4746)));
+    controller.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(glassPoints[value].lat, glassPoints[value].lng),
+          zoom: 14.4746,
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) => Scaffold(
-          body: Stack(children: [
-        GoogleMap(
-            markers: _markers,
-            onTap: (value) => setState(() => getCloseSheet()),
-            initialCameraPosition: CameraPosition(
-                target: LatLng(57.575495, 39.857969), zoom: 14.4746),
-            onMapCreated: (GoogleMapController controller) {
-              _googleMapController.complete(controller);
-            }),
-        Align(
-            alignment: Alignment.bottomCenter,
-            child: AnimatedContainer(
+        body: Stack(
+          children: [
+            GoogleMap(
+              markers: _markers,
+              onTap: (value) => setState(() => getCloseSheet()),
+              initialCameraPosition: CameraPosition(
+                  target: LatLng(57.575495, 39.857969), zoom: 14.4746),
+              onMapCreated: (GoogleMapController controller) {
+                _googleMapController.complete(controller);
+              },
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: AnimatedContainer(
                 duration: Duration(milliseconds: 500),
                 height: showSheet ? 205 : 0,
                 decoration: BoxDecoration(
@@ -175,20 +194,26 @@ class _PointMapState extends State<PointMap> {
                         topRight: Radius.circular(20),
                         topLeft: Radius.circular(20))),
                 child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: 32),
-                    child: AnimatedOpacity(
-                        opacity: showSheetBody ? 1.0 : 0.0,
-                        duration: Duration(milliseconds: 500),
-                        child: PageView(
-                            controller: _controller,
-                            onPageChanged: (value) =>
-                                _changeCameraPosition(value),
-                            children: [
-                              for (int i = 0; i < glassPoints.length; i++)
-                                bottomSheetPage(glassPoints[i].name,
-                                    glassPoints[i].lat, glassPoints[i].lng)
-                            ])))))
-      ]));
+                  padding: EdgeInsets.symmetric(vertical: 32),
+                  child: AnimatedOpacity(
+                    opacity: showSheetBody ? 1.0 : 0.0,
+                    duration: Duration(milliseconds: 500),
+                    child: PageView(
+                      controller: _controller,
+                      onPageChanged: (value) => _changeCameraPosition(value),
+                      children: [
+                        for (int i = 0; i < glassPoints.length; i++)
+                          bottomSheetPage(glassPoints[i].name,
+                              glassPoints[i].lat, glassPoints[i].lng)
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      );
 
   Padding bottomSheetPage(String name, lat, lon) => Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.5),
