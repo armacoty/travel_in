@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
-import 'package:vector_math/vector_math_64.dart' as vector;
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:travel_in/client.dart';
 
 class ARPage extends StatefulWidget {
   @override
@@ -12,22 +12,29 @@ class _ARPageState extends State<ARPage> {
   ArCoreController arCoreController;
   FlutterTts flutterTts = FlutterTts();
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          // ArCoreView(
+          //   onArCoreViewCreated: _onArCoreViewCreated,
+          //   enableTapRecognizer: true,
+          // ),
+          Container(
+            color: Colors.green,
+          ),
+        ],
+      ),
+    );
+  }
+
   void say(String s) async {
     var voices = flutterTts.getVoices;
     print(voices);
     // await flutterTts.setVoice({"name": "Name", "locale": "ru-RU"});
     await flutterTts.setLanguage("ru-RU");
     await flutterTts.speak(s);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ArCoreView(
-        onArCoreViewCreated: _onArCoreViewCreated,
-        enableTapRecognizer: true,
-      ),
-    );
   }
 
   void _onArCoreViewCreated(ArCoreController controller) {
