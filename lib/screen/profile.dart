@@ -1,4 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:travel_in/screen/webview.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -159,7 +163,15 @@ class _ProfilePageState extends State<ProfilePage> {
                                         icon: Image.asset(
                                           'assets/SBER/sber_food.png',
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) =>
+                                                  WebViewExample(),
+                                            ),
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),
