@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
           unselectedItemColor: Colors.black,
           selectedIconTheme: IconThemeData(color: Colors.white),
           selectedLabelStyle: TextStyle(color: Colors.grey),
-          selectedItemColor: Colors.black,
+          selectedItemColor: Colors.white,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
                 icon: Image.asset('assets/favorites.png',
