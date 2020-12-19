@@ -25,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
               child: Stack(
                 children: [
                   /// Иконки настроек и поиска
-                  Padding(
+                  Container(
                     padding: const EdgeInsets.only(top: 32.0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,14 +66,13 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
 
                   /// Пользователь и сервисы
-                  Expanded(
-                    flex: 1,
+                  Container(
+                    padding: const EdgeInsets.only(top: 32.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        SizedBox(height: 100),
-
                         /// Пользователь
+                        SizedBox(height: 50),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [

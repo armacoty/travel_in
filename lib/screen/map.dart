@@ -122,7 +122,7 @@ class _PointMapState extends State<PointMap> {
           ImageConfiguration(
             size: Size(67.5, 54),
           ),
-          'images/navbar/map/red_marker.png',
+          'assets/map/red_marker.png',
         ),
       ),
     );
@@ -136,7 +136,7 @@ class _PointMapState extends State<PointMap> {
             ImageConfiguration(
               size: Size(67.5, 54),
             ),
-            'images/navbar/map/green_marker.png',
+            'assets/map/green_marker.png',
           ),
         ),
       );
@@ -264,7 +264,7 @@ class _PointMapState extends State<PointMap> {
       Column(children: [
         Text(percent,
             style: TextStyle(fontSize: 11, color: SortConstants().textColor)),
-        Image.asset("images/navbar/map/bottom_sheet/$image.png",
+        Image.asset("assets/map/bottom_sheet/$image.png",
             width: 29, height: 33),
         Text(title,
             style: TextStyle(fontSize: 11, color: SortConstants().textColor)),
