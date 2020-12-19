@@ -16,7 +16,6 @@ class _LoginPageState extends State<LoginPage> {
           image: DecorationImage(
             image: AssetImage("assets/1.png"),
             fit: BoxFit.cover,
-            scale: 500,
           ),
         ),
         width: MediaQuery.of(context).size.width,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_in/screen/home.dart';
 import 'package:travel_in/screen/map.dart';
 import 'package:travel_in/screen/prear.dart';
+import 'package:travel_in/screen/profile.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key}) : super(key: key);
@@ -17,11 +18,10 @@ class _MyHomePageState extends State<MyHomePage> {
   var _pages = [
     /// todo: добавить потом другие страницы
     HomePage(),
-
-    PreARPage(),
+    HomePage(),
     PointMap(),
-    HomePage(),
-    HomePage(),
+    PreARPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
               icon: Image.asset('assets/favorites.png',
                   width: 30, height: 30, fit: BoxFit.contain),
-              label: "Один"),
+              label: "Рейтинг"),
           BottomNavigationBarItem(
               icon: Image.asset('assets/shopping-cart.png',
                   width: 30, height: 30, fit: BoxFit.contain),
@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
               label: "Гид"),
           BottomNavigationBarItem(
               icon: Image.asset('assets/user.png',
-                  width: 30, height: 30, fit: BoxFit.contain),
+                  width: 30, height: 28, fit: BoxFit.contain),
               label: "Профиль"),
         ],
         currentIndex: _seletedItem,
