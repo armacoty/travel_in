@@ -3,7 +3,7 @@ import 'package:travel_in/models/attractions_model.dart';
 class Client {
   List<Attraction> getAttractions() {
     // // TODO: Remove mock data
-    return <Attraction>[
+    var attr = <Attraction>[
       Attraction(
         "Успенский собор",
         1,
@@ -187,6 +187,11 @@ class Client {
         longitude: 39.89500116748213,
       ),
     ];
+    for (Attraction attraction in attr) {
+      attraction.imageUrl =
+          'https://upload.wikimedia.org/wikipedia/commons/d/d0/%D0%97%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5_%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B3%D0%BE_%D1%82%D0%B5%D0%B0%D1%82%D1%80%D0%B0_%D0%BD%D0%B0_%D0%BF%D0%BB%D0%BE%D1%89%D0%B0%D0%B4%D0%B8_%D0%92%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%B0.jpg';
+    }
+    return attr;
   }
 }
 
