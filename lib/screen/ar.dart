@@ -3,6 +3,7 @@ import 'package:arcore_flutter_plugin/arcore_flutter_plugin.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:travel_in/client.dart';
 
+/// Экран с дополненной реальностью
 class ARPage extends StatefulWidget {
   @override
   _ARPageState createState() => _ARPageState();
@@ -10,6 +11,8 @@ class ARPage extends StatefulWidget {
 
 class _ARPageState extends State<ARPage> {
   ArCoreController arCoreController;
+
+  /// Синтез речи
   FlutterTts flutterTts = FlutterTts();
 
   Map<String, String> getQuestions() => client.getAttractions().first.questions;
@@ -70,13 +73,15 @@ class _ARPageState extends State<ARPage> {
     arCoreController.onPlaneTap = _handleOnPlaneTap;
   }
 
-  void onTapHandler(String name) => print("Для чего использовать касание гида?");
+  void onTapHandler(String name) =>
+      print("Для чего использовать касание гида?");
 
   void _handleOnPlaneTap(List<ArCoreHitTestResult> hits) {
     final hit = hits.first;
     _addGuide(hit);
   }
 
+  /// Размещение гида на поверхности по касанию
   void _addGuide(ArCoreHitTestResult plane) {
     print("HIT");
     var foxNode = ArCoreReferenceNode(

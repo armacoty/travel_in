@@ -1,7 +1,9 @@
-// Достопримечательность
+/// Достопримечательность
 class Attraction {
   final String name;
   final int id;
+
+  /// Ссылка на изображение достопримечательности
   String imageUrl;
 
   double _rating = 1.0;
@@ -16,8 +18,10 @@ class Attraction {
   /// между 1.0 и 5.0 или Nan если еще нет рейтинга
   double get rating => _rating;
 
+  /// Часто задаваемые и интересные вопросы
   Map<String, String> questions = {};
 
+  /// Координаты: широтаБ долгота.
   double latitude, longitude;
 
   Attraction(this.name, this.id,

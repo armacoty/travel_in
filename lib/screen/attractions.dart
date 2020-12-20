@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:travel_in/models/attractions_model.dart';
 
+/// Экран с информацией о достопримечательости
 class AttractionsScreen extends StatefulWidget {
   final Attraction attraction;
 

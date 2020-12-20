@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+/// Вставиание веб приложения в экран
 class Embed extends StatefulWidget {
   Embed({Key key, this.url, this.color, this.title}) : super(key: key);
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Описание сервиса сберабанка
 class SberService {
   String title, icon, url;
   Color color;
@@ -8,10 +9,11 @@ class SberService {
       {this.color = Colors.green, this.icon, this.title = "", this.url});
 }
 
+/// Основные сервисы
 final links = <SberService>[
   SberService(
     icon: 'assets/SBER/sber_eapteka.png',
-    url: 'https://www.sberbank.com/ru/eco/eapteka',
+    url: 'https://www.eapteka.ru/yaroslavl/',
     color: Color(0xFF7D6EEE),
     title: 'СБЕР ЕАПТЕКА',
   ),
@@ -35,7 +37,7 @@ final links = <SberService>[
   ),
   SberService(
     icon: 'assets/SBER/sber_samokat.png',
-    url: 'https://www.sberbank.com/ru/eco/samokat',
+    url: 'https://samokat.ru/',
     color: Color(0xFFFD486F),
     title: 'Самокат',
   ),
