@@ -43,7 +43,13 @@ dev_dependencies:
     sdk: flutter
   integration_test:
     sdk: flutter
+  flutter_launcher_icons: "^0.8.0"
 
+flutter_icons:
+  android: "ic_launcher"
+  ios: true
+  image_path: "assets/bear.png"
+  adaptive_icon_background: "#ffffff"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

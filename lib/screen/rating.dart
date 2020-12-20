@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:travel_in/client.dart';
 import 'package:travel_in/screen/attractions.dart';
 
-class RaitingPage extends StatefulWidget {
+class RatingPage extends StatefulWidget {
   @override
-  _RaitingPageState createState() => _RaitingPageState();
+  _RatingPageState createState() => _RatingPageState();
 }
 
-class _RaitingPageState extends State<RaitingPage> {
+class _RatingPageState extends State<RatingPage> {
   @override
   Widget build(BuildContext context) {
     var attractions = client.getAttractions();

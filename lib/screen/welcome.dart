@@ -30,37 +30,49 @@ class _WelcomePageState extends State<WelcomePage> {
                   Container(
                     padding: EdgeInsets.all(20.0),
                     child: Image(
-                        image: AssetImage('assets/logo.png'), height: 160),
+                      image: AssetImage('assets/logo.png'),
+                      height: 160,
+                    ),
                   ),
-                  Text('TRAVEL IN',
-                      style: TextStyle(color: Colors.black, fontSize: 30)),
-                  SizedBox(height: 30),
+                  Text(
+                    'TRAVEL IN',
+                    style: TextStyle(color: Colors.black, fontSize: 30),
+                  ),
+                  SizedBox(
+                    height: 30,
+                  ),
                   RaisedButton(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 25, horizontal: 100),
-                      color: Color(0xFFF57600),
-                      textColor: Colors.white,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: new BorderRadius.circular(30.0)),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => LoginPage()),
-                        );
-                      },
-                      child: Text("Вход")),
+                    padding: EdgeInsets.symmetric(
+                      vertical: 25,
+                      horizontal: 100,
+                    ),
+                    color: Color(0xFFF57600),
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(30.0),
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginPage()),
+                      );
+                    },
+                    child: Text("Вход"),
+                  ),
                   SizedBox(height: 10),
                   RaisedButton(
                     padding: EdgeInsets.symmetric(vertical: 25, horizontal: 75),
                     color: Color(0xFFF57600),
                     textColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                        borderRadius: new BorderRadius.circular(30.0)),
+                      borderRadius: new BorderRadius.circular(30.0),
+                    ),
                     onPressed: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => RegistrationPage()),
+                          builder: (context) => RegistrationPage(),
+                        ),
                       );
                     },
                     child: Text("Регистрация"),

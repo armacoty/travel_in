@@ -10,7 +10,7 @@
   <uses-feature android:name="android.hardware.camera.autofocus" />
   <uses-feature android:name="android.hardware.camera.ar" android:required="true" />
   
-  <application android:label="travel_in" android:icon="@mipmap/ic_launcher">
+  <application android:label="Travel In" android:icon="@mipmap/ic_launcher">
     <uses-library android:name="org.apache.http.legacy" android:required="false"/>
     <activity android:name=".MainActivity" android:launchMode="singleTop" android:theme="@style/LaunchTheme" android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode" android:hardwareAccelerated="true" android:windowSoftInputMode="adjustResize">
       <meta-data android:name="io.flutter.embedding.android.NormalTheme" android:resource="@style/NormalTheme" />

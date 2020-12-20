@@ -23,9 +23,6 @@ class _ARPageState extends State<ARPage> {
             onArCoreViewCreated: _onArCoreViewCreated,
             enableTapRecognizer: true,
           ),
-          // Container(
-          //   color: Colors.green,
-          // ),
           Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
@@ -73,7 +70,7 @@ class _ARPageState extends State<ARPage> {
     arCoreController.onPlaneTap = _handleOnPlaneTap;
   }
 
-  void onTapHandler(String name) => print("ГИД: КАСАНИЕ");
+  void onTapHandler(String name) => print("Для чего использовать касание гида?");
 
   void _handleOnPlaneTap(List<ArCoreHitTestResult> hits) {
     final hit = hits.first;

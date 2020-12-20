@@ -14,7 +14,7 @@ class _PreARPageState extends State<PreARPage> {
     return Scaffold(
       body: Center(
         child: Text(
-          "Открытие камеры",
+          "Открытие камеры...",
           style: TextStyle(color: Colors.white),
         ),
       ),

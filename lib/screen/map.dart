@@ -5,12 +5,12 @@ import 'package:travel_in/client.dart';
 import 'package:travel_in/models/attractions_model.dart';
 import 'package:travel_in/screen/attractions.dart';
 
-class PointMap extends StatefulWidget {
+class MapPage extends StatefulWidget {
   @override
-  _PointMapState createState() => _PointMapState();
+  _MapPageState createState() => _MapPageState();
 }
 
-class _PointMapState extends State<PointMap> {
+class _MapPageState extends State<MapPage> {
   Completer<GoogleMapController> _googleMapController = Completer();
 
   List<Attraction> _attractions = client.getAttractions();

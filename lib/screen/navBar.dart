@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:travel_in/screen/map.dart';
 import 'package:travel_in/screen/prear.dart';
 import 'package:travel_in/screen/profile.dart';
-import 'package:travel_in/screen/raiting.dart';
+import 'package:travel_in/screen/rating.dart';
 import 'package:travel_in/screen/shop.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -18,9 +18,9 @@ class _MyHomePageState extends State<MyHomePage> {
   /// Страницы,
   var _pages = [
     /// todo: добавить потом другие страницы
-    RaitingPage(),
+    RatingPage(),
     ShopPage(),
-    PointMap(),
+    MapPage(),
     PreARPage(),
     ProfilePage(),
   ];
